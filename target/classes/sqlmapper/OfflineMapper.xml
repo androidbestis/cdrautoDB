@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gp.mapper.Test" >
+
+    <resultMap id="offlinentity" type="com.gp.entity.OfflineEntity">
+        <result property="PID" column="PID"/>
+        <result property="SHEBAOBH" column="SHEBAOBH"/>
+        <result property="YBKH" column="YBKH"/>
+    </resultMap>
+
+    <!--查询用于的推送id-->
+    <select id="TestQuery" parameterType="String" resultMap="offlinentity">
+        select PID,SHEBAOBH,YBKH
+        from V_GP_DOC_PATIENTS_ZY
+        where DOCTOR_NO = #{param}
+    </select>
+
+</mapper>
